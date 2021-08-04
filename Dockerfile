@@ -29,9 +29,8 @@ RUN wget -q -c http://buildroot.org/downloads/buildroot-2021.05.tar.gz
 RUN tar axf buildroot-2021.05.tar.gz
 WORKDIR /opt/buildroot/buildroot-2021.05
 
-# Use qemu_virt based config, but replace toolchain with prebuilt one located in: /opt/buildroot/riscv64-buildroot-linux-uclibc_sdk-buildroot.tar.gz
-COPY armleo_qemu_virt_defconfig /opt/buildroot/buildroot-2021.05/configs/armleo_qemu_virt_defconfig
-RUN make armleo_qemu_virt_defconfig
+# Set configuration
+RUN make qemu_riscv64_virt_defconfig
 
 # Do actual build
 RUN make
