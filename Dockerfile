@@ -29,20 +29,6 @@ RUN wget -q -c http://buildroot.org/downloads/buildroot-2021.05.tar.gz
 RUN tar axf buildroot-2021.05.tar.gz
 WORKDIR /opt/buildroot/buildroot-2021.05
 
-# Let's build toolchain
-# Following architecture configuration are used: RV64G
-# Select the appropriate Target options for your target CPU architecture
-# • In the Toolchain menu, keep the default of Buildroot toolchain for Toolchain type, and configure your toolchain as desired
-# • In the System configuration menu, select None as the Init system and none as /bin/sh
-# • In the Target packages menu, disable BusyBox
-# • In the Filesystem images menu, disable tar the root filesystem
-
-COPY armleo_toolchain_defconfig /opt/buildroot/buildroot-2021.05/configs/armleo_toolchain_defconfig
-RUN make armleo_toolchain_defconfig
-RUN make sdk
-RUN mv /opt/buildroot/buildroot-2021.05/output/images/riscv64-buildroot-linux-uclibc_sdk-buildroot.tar.gz /opt/buildroot/riscv64-buildroot-linux-uclibc_sdk-buildroot.tar.gz
-
-
 # Use qemu_virt based config, but replace toolchain with prebuilt one located in: /opt/buildroot/riscv64-buildroot-linux-uclibc_sdk-buildroot.tar.gz
 COPY armleo_qemu_virt_defconfig /opt/buildroot/buildroot-2021.05/configs/armleo_qemu_virt_defconfig
 RUN make armleo_qemu_virt_defconfig
