@@ -27,5 +27,5 @@ jobs:
           context: .
           push: true
           tags: |
-            armleo/riscv_linux_toolset:v1
+            armleo/riscv_linux_toolset:v2
             armleo/riscv_linux_toolset:latest
