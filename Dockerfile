@@ -38,8 +38,8 @@ WORKDIR /opt/buildroot/buildroot-2021.05
 # The Buildroot user manual 13 / 128
 # • In the Filesystem images menu, disable tar the root filesystem
 
-COPY armleo_toolchainconfig_defconfig /opt/buildroot/buildroot-2021.05/configs/armleo_toolchainconfig_defconfig
-RUN make armleo_toolchainconfig_defconfig
+COPY armleo_toolchain_defconfig /opt/buildroot/buildroot-2021.05/configs/armleo_toolchain_defconfig
+RUN make armleo_toolchain_defconfig
 RUN make sdk
 
 
