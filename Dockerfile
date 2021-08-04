@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Bionic is required by Buildroot
-FROM ubuntu:bionic
+FROM ubuntu:21.04
 
 # To force automatic decisions for apt-get
 ENV DEBIAN_FRONTEND=noninteractive
