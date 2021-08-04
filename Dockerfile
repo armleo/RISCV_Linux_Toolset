@@ -29,13 +29,10 @@ RUN wget -q -c http://buildroot.org/downloads/buildroot-2021.05.tar.gz
 RUN tar axf buildroot-2021.05.tar.gz
 WORKDIR /opt/buildroot/buildroot-2021.05
 
+COPY qemu_opensbi_uboot_payload_defconfig /opt/buildroot/buildroot-2021.05/configs/qemu_opensbi_uboot_payload_defconfig
+
 # Set configuration
-RUN make qemu_riscv64_virt_defconfig
+RUN make qemu_opensbi_uboot_payload_defconfig
 
 # Do actual build
 RUN make
-
-
-
-
-
