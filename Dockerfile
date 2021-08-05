@@ -37,4 +37,4 @@ RUN make qemu_opensbi_uboot_payload_defconfig
 # Do actual build
 RUN make
 
-RUN apt-get install qemu-system-misc
+RUN apt-get -y install qemu-system-misc
