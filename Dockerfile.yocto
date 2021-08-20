@@ -5,6 +5,9 @@ FROM ubuntu:21.04
 # To force automatic decisions for apt-get
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Tell system to use bash instead of shell
+SHELL ["/bin/bash", "-c"]
+
 RUN apt-get -q update
 
 RUN apt-get -q -y install locales
