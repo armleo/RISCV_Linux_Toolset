@@ -37,4 +37,32 @@ RUN make qemu_opensbi_uboot_payload_defconfig
 # Do actual build
 RUN make
 
+# Install QEMU for risc-v
 RUN apt-get -y install qemu-system-misc
+
+# Yocto
+WORKDIR /opt/
+RUN apt-get -y install gawk wget git diffstat unzip texinfo gcc build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev
+
+RUN git clone git://git.yoctoproject.org/poky
+
+WORKDIR /opt/poky
+
+RUN git checkout -t origin/hardknott -b my-hardknott
+
+# Disable sanity check, to disable root check
+
+COPY sanity.conf /opt/poky/meta/conf/sanity.conf
+
+# Sets the MACHINE to qemuriscv64
+COPY local.conf /opt/poky/build/conf/local.conf
+
+RUN source oe-init-build-env
+
+RUN bitbake core-image-minimal
+
+
+
+
+
+
