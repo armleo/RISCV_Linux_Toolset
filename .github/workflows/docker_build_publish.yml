@@ -28,7 +28,8 @@ jobs:
           context: .
           push: true
           tags: |
-            armleo/riscv_linux_toolset:latest-buildroot
+            armleo/riscv_linux_toolset:buildroot-latest
+            armleo/riscv_linux_toolset:buildroot-v2
   build-and-push-yocto-image:
     runs-on: ubuntu-latest
     permissions:
@@ -52,4 +53,5 @@ jobs:
           context: .
           push: true
           tags: |
-            armleo/riscv_linux_toolset:latest-yocto
+            armleo/riscv_linux_toolset:yocto-latest
+            armleo/riscv_linux_toolset:yocto-v2
