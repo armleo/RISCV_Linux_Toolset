@@ -29,8 +29,7 @@ jobs:
           push: true
           tags: |
             armleo/riscv_linux_toolset:latest-buildroot
-jobs:
-  build-and-push-buildroot-image:
+  build-and-push-yocto-image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
