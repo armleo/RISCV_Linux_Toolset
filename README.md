@@ -4,7 +4,7 @@ This is Dockerfile that is used to build DockerHub image `armleo/riscv_linux_too
 # Running under qemu
 Enter docker using following command:
 ```bash
-docker run --rm -it armleo/riscv_linux_toolset:latest
+docker run --rm -it armleo/riscv_linux_toolset:latest-buildroot
 ```
 
 Then enter following:
