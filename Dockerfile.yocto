@@ -6,7 +6,7 @@ FROM ubuntu:21.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Make configure ignore root error
-EVN FORCE_UNSAFE_CONFIGURE=1
+ENV FORCE_UNSAFE_CONFIGURE=1
 
 # Tell system to use bash instead of shell
 SHELL ["/bin/bash", "-c"]
