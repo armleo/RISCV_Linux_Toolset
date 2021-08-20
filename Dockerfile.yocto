@@ -34,8 +34,7 @@ COPY sanity.conf /opt/poky/meta/conf/sanity.conf
 # Sets the MACHINE to qemuriscv64
 COPY local.conf /opt/poky/build/conf/local.conf
 
-RUN source oe-init-build-env
+RUN source oe-init-build-env && bitbake core-image-minimal
 
-RUN bitbake core-image-minimal
 
 
