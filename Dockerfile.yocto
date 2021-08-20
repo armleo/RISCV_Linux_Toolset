@@ -1,6 +1,18 @@
 # syntax=docker/dockerfile:1
 
-FROM armleo/riscv_linux_toolset:latest_buildroot
+FROM ubuntu:21.04
+
+# To force automatic decisions for apt-get
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get -q update
+
+RUN apt-get -q -y install locales
+RUN update-locale LC_ALL=C
+
+RUN apt-get -y install qemu-system-misc
+
+RUN apt-get -q -y install qemu
 
 # Yocto
 WORKDIR /opt/
