@@ -34,7 +34,7 @@ jobs:
         env:
           TAG_NAME: riscv_linux_toolset:latest-yocto
         with:
-          file: Dockerfile.buildroot
+          file: Dockerfile.yocto
           context: .
           push: true
           tags: |
