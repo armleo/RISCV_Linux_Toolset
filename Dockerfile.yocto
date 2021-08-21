@@ -46,5 +46,7 @@ USER myapp
 
 RUN source oe-init-build-env && bitbake core-image-minimal
 
+USER 0:0
+
 
 
